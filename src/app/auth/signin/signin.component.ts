@@ -24,7 +24,6 @@ export class SigninComponent implements OnInit {
     if(this.signInForm.valid) {
       this.authService.authenticatedUser = true;
       this.router.navigate(['/aboutus']);
-      
     }
     
   }

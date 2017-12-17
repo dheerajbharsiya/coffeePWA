@@ -1,0 +1,43 @@
+<form [formGroup]="coffeeDetailForm" novalidate>
+  <mat-card>
+    <mat-card-title>Coffee Information</mat-card-title>
+    <mat-input-container>
+      <input matInput placeholder="Coffee Name" [(ngModel)]="coffee.name" name="name" formControlName="name">
+    </mat-input-container>
+
+    <mat-select placeholder="Coffee Type" [(ngModel)]="coffee.type" formControlName="types">
+      <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+    </mat-select>
+  </mat-card>
+  <mat-card>
+    <mat-input-container>
+      <mat-card-title>Place Information</mat-card-title>
+      <input matInput placeholder="Place" [(ngModel)]="coffee.place" name="place" formControlName="place">
+    </mat-input-container>
+    <mat-input-container>
+      <input matInput placeholder="Addresss" [(ngModel)]="coffee.location.address" name="address" formControlName="address">
+    </mat-input-container>
+    <mat-input-container>
+      <input matInput placeholder="City" [(ngModel)]="coffee.location.city" name="city" formControlName="city">
+    </mat-input-container>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Ratings</mat-card-title>
+    <mat-slider max="10" thumbLabel name="rating" [(ngModel)]="coffee.rating" tickInterval="1" formControlName="overallRating"></mat-slider>
+    <mat-card-subtitle>Overall Rating</mat-card-subtitle>
+    <mat-card-subtitle>
+      <mat-slide-toggle #tasteCheck>Tasting Rating</mat-slide-toggle>
+    </mat-card-subtitle>
+
+    <section id="tasteRating" *ngIf="tasteCheck.checked">
+      <label>Aroma</label>
+      <mat-slider max="10" thumbLabel name="aromaRating" [(ngModel)]="coffee.tastingRating.aroma" tickInterval="1" formControlName="aromaRating"></mat-slider>
+    </section>
+
+  </mat-card>
+  <mat-card>
+    <mat-input-container>
+      <textarea matInput placeholder="Notes" [(ngModel)]="coffee.notes" name="notes" formControlName="notes"></textarea>
+    </mat-input-container>
+  </mat-card>
+</form>
