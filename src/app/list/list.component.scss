@@ -1,5 +1,10 @@
+//for create button
 .create-button {
     position: fixed;
     right: 20px;
     bottom: 20px;
+    .mat-button-wrapper {
+        position: relative;
+        right: 10px;
+    }
 }

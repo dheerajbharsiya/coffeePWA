@@ -10,8 +10,8 @@
     </mat-select>
   </mat-card>
   <mat-card>
+    <mat-card-title>Place Information</mat-card-title>
     <mat-input-container>
-      <mat-card-title>Place Information</mat-card-title>
       <input matInput placeholder="Place" [(ngModel)]="coffee.place" name="place" formControlName="place">
     </mat-input-container>
     <mat-input-container>
@@ -26,7 +26,7 @@
     <mat-slider max="10" thumbLabel name="rating" [(ngModel)]="coffee.rating" tickInterval="1" formControlName="overallRating"></mat-slider>
     <mat-card-subtitle>Overall Rating</mat-card-subtitle>
     <mat-card-subtitle>
-      <mat-slide-toggle #tasteCheck>Tasting Rating</mat-slide-toggle>
+      <mat-slide-toggle #tasteCheck [checked]="isTasteEnabled">Tasting Rating</mat-slide-toggle>
     </mat-card-subtitle>
 
     <section id="tasteRating" *ngIf="tasteCheck.checked">
@@ -40,4 +40,14 @@
       <textarea matInput placeholder="Notes" [(ngModel)]="coffee.notes" name="notes" formControlName="notes"></textarea>
     </mat-input-container>
   </mat-card>
+  <mat-card>
+    <button md-raised-button class="md-primary" (click)="onCancel()">Cancel</button>
+    <button md-raised-button color="accent" class="md-accent md-raised" (click)="onSave()">Save</button>
+  </mat-card>
+  <mat-card>
+    <div *ngIf="coffeeDetailForm.value">
+      {{coffeeDetailForm.value | json}}
+    </div>
+  </mat-card>
+
 </form>

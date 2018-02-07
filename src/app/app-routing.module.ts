@@ -10,6 +10,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { NgModule } from '@angular/core';
 import { Routes, PreloadAllModules } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { Coffee } from './logic/coffee';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     {
         path: 'coffee', component: CoffeeComponent
     },
+    { path: 'coffee/:id', component: CoffeeComponent },
     {
         path: 'aboutus', component: AboutusComponent,
         children: [{

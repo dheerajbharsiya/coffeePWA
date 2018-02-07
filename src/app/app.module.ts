@@ -22,6 +22,7 @@ import {
 import 'hammerjs';
 import { ListComponent } from './list/list.component';
 import { CoffeeComponent } from './coffee/coffee.component';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CoffeeComponent } from './coffee/coffee.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, 
-    MatSliderModule, MatCardModule, MatSlideToggleModule, MatToolbarModule
+    MatSliderModule, MatCardModule, MatSlideToggleModule, MatToolbarModule,
+    HttpModule
   ],
   providers: [AuthService, GeolocationService, DataService],
   bootstrap: [AppComponent]

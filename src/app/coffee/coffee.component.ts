@@ -3,7 +3,11 @@ import { Coffee } from './../logic/coffee';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
+import {
+  MatButtonModule, MatInputModule
+} from '@angular/material';
+import { Router } from '@angular/router';
+import { DataService } from '../data/data.service';
 @Component({
   selector: 'app-coffee',
   templateUrl: './coffee.component.html',
@@ -15,11 +19,23 @@ export class CoffeeComponent implements OnInit {
   coffee: Coffee;
   types: [string] = ['cappechino', 'espresso'];
   coffeeDetailForm: FormGroup;
-  constructor(private route: ActivatedRoute, private geolocation: GeolocationService) {
+  private isTasteEnabled: boolean = false;
+  constructor(private route: ActivatedRoute, private geolocation: GeolocationService, private router:Router, private dataService: DataService) {
+  }
+
+  private onSave(): void {
+    this.dataService.save(this.coffee, result => {
+      if(result) {  
+        this.router.navigate(['/']);        
+      }
+    });
+  }
+
+  private onCancel(): void {
+    this.router.navigate(['/']);
   }
 
   ngOnInit() {
-
     this.coffee = new Coffee();
     this.coffeeDetailForm = new FormGroup({
       'name': new FormControl(null),
@@ -40,9 +56,16 @@ export class CoffeeComponent implements OnInit {
     });
 
     this.routerSubscription = this.route.params.subscribe((params) => {
-      console.log(params.id);
+      console.log(params.id+"id is");
+      if(params.id) {
+        this.dataService.getCoffeeById(params.id, resp=>{
+          this.coffee = resp;
+          if(this.coffee.tastingRating) {
+            this.isTasteEnabled = true;
+          }
+        });
+      }
     });
-
   }
 
 }
