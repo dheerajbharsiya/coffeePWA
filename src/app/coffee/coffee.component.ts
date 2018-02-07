@@ -19,11 +19,11 @@ export class CoffeeComponent implements OnInit {
   coffee: Coffee;
   types: [string] = ['cappechino', 'espresso'];
   coffeeDetailForm: FormGroup;
-  private isTasteEnabled: boolean = false;
+  public isTasteEnabled: boolean = false;
   constructor(private route: ActivatedRoute, private geolocation: GeolocationService, private router:Router, private dataService: DataService) {
   }
 
-  private onSave(): void {
+  public onSave(): void {
     this.dataService.save(this.coffee, result => {
       if(result) {  
         this.router.navigate(['/']);        
@@ -31,7 +31,7 @@ export class CoffeeComponent implements OnInit {
     });
   }
 
-  private onCancel(): void {
+  public onCancel(): void {
     this.router.navigate(['/']);
   }
 
