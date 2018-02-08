@@ -2,7 +2,7 @@
     "name": "my coffee progressive app",
     "short_name": "coffeeApp",
     "lang": "en-US",
-    "start_url": "/",
+    "start_url": "/home",
     "display": "standalone",
     "orientation": "any",
     "scope": "/",
@@ -10,7 +10,16 @@
     "background_color": "#345484",
     "icons": [
         {
-            "src":"icons/icon_app.png"
+            "src":"icons/icon_app.png",
+            "sizes": "96x96"
+        },
+        {
+            "src":"icons/icon_app.png",
+            "sizes": "144x144"
+        },
+        {
+            "src":"icons/icon_app.png",
+            "sizes": "192x192"
         }
     ]
   }
