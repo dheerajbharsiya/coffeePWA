@@ -21,11 +21,12 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
+      "serviceWorker": true,
       "styles": [
         "styles.scss",
         "./../src/app/styles/main.scss",
         "./../src/assets/css/bootstrap.min.css",
-        "./../src/assets/css/font-awesome.min.css"     
+        "./../src/assets/css/font-awesome.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

@@ -17,12 +17,14 @@ import { ContactusComponent } from './aboutus/contactus/contactus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatSliderModule, 
-  MatCardModule, MatSlideToggleModule, MatToolbarModule
+  MatCardModule, MatSlideToggleModule, MatToolbarModule, MatSnackBarModule
 } from '@angular/material';
 import 'hammerjs';
 import { ListComponent } from './list/list.component';
 import { CoffeeComponent } from './coffee/coffee.component';
 import {HttpModule} from '@angular/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,10 @@ import {HttpModule} from '@angular/http';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, 
+    MatButtonModule, MatIconModule, MatInputModule, MatSelectModule,MatSnackBarModule,
     MatSliderModule, MatCardModule, MatSlideToggleModule, MatToolbarModule,
-    HttpModule
+    HttpModule,
+    ServiceWorkerModule
   ],
   providers: [AuthService, GeolocationService, DataService],
   bootstrap: [AppComponent]
